@@ -1,7 +1,10 @@
-void setup() {
-  // put your setup code here, to run once:
+typedef struct bouton BOUTON;
 
-  
+struct BOUTON {
+    int pinLed;
+    int pinButton;
+    int frequence;
+}
 
 }
 
