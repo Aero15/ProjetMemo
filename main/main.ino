@@ -1,22 +1,16 @@
-typedef struct bouton BOUTON;
-
-struct BOUTON {
-    int pinLed;
-    int pinButton;
-    int frequence;
-}
+#include "boutons.h"
 
 bouton btn1;
 
 void setup() {
-  
-  btn1.pinLed=2;
-  btn1.pinButton=76;
-  btn1.frequence=12;
-
+  Serial.begin(9600);
+  btn1 = setBouton(2,75,12);
+  activate(btn1);
 }
 
-void loop() {
-  
-  
+void loop()
+{
+    activate(btn1);
 }
+
+
