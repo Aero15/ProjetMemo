@@ -6,6 +6,7 @@ struct BOUTON {
     int frequence;
 }
 
+void setup() {
 }
 
 void loop() {
