@@ -6,12 +6,17 @@ struct BOUTON {
     int frequence;
 }
 
+bouton btn1;
+
 void setup() {
+  
+  btn1.pinLed=2;
+  btn1.pinButton=76;
+  btn1.frequence=12;
+
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  // hello world
-
-
+  
+  
 }
