@@ -1,16 +1,24 @@
 #include "boutons.h"
 
-bouton btn1;
+bouton melodiePredefinie[4];
 
 void setup() {
+  initMelodie();
   Serial.begin(9600);
-  btn1 = setBouton(2,75,12);
-  activate(btn1);
 }
 
 void loop()
 {
-    activate(btn1);
+  activate(melodiePredefinie[0]);
+
 }
+
+
+void initMelodie(){
+  melodiePredefinie[0]=setBouton(2,75,12);
+  melodiePredefinie[1]=setBouton(2,75,12);
+  melodiePredefinie[2]=setBouton(2,75,12);
+  melodiePredefinie[3]=setBouton(2,75,12);
+  }
 
 

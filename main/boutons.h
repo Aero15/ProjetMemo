@@ -15,6 +15,8 @@ bouton setBouton(int pinLed,int pinButton,int frequence)
     
     pinMode(b.pinLed,OUTPUT);
     pinMode(b.pinButton,INPUT);
+
+    return b;
 }
 
 void activate(bouton b)
