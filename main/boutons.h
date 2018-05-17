@@ -23,7 +23,7 @@ bouton setBouton(int pinLed,int pinButton,int frequence,int buzzer) // Crée un 
 
 void activate(bouton b) // Allume une led (et devrait activer le buzzer également)
 {
-  tone(b.buzzer, 1000, 250);
+  tone(b.buzzer,b.frequence, 250);
   digitalWrite(b.pinLed,HIGH);
   digitalWrite(b.pinLed,LOW);
 }
