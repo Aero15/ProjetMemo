@@ -23,6 +23,7 @@ void loop()
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   boolean btn1=digitalRead(melodiePredefinie[0].pinButton);
   Serial.println(btn1);
   if (btn1==1){activate(melodiePredefinie[0]);}
@@ -49,6 +50,8 @@ void loop()
     }
 }
 >>>>>>> 1c7ba3de201f08c1ede48c30276d2d729adef268
+=======
+>>>>>>> parent of 36bba16... Premier test sur la structure boutton
 =======
 >>>>>>> parent of 36bba16... Premier test sur la structure boutton
 
