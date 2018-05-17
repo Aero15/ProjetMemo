@@ -1,23 +1,56 @@
 #include "boutons.h"
 #include <time.h>
 
-bouton melodiePredefinie[4]; // contient les boutonsMelodie prédefinis
-bouton melodieSaisie[10]; //contient la saisie du joueur 
-bouton melodieGenerer[10];//contient la melodie générer 
+#define STATE1 0
+#define STATE2 1
+#define STATE3 2
+#define STATE4 3
 
-void setup() {
-    initMelodie();
-    initTableau();
-    srand(time(NULL));
+int state, nextState;
+
+bouton melodiePredefinie[4]; // Contient les Boutons/Led/Frequences prédefinis
+bouton melodieGenerer[10];   // Contient les B/L/F à saisir
+bouton melodieSaisie[10];    // Contient la saisie des B/L/F du joueur 
+
+void setup()
+{
     Serial.begin(9600);
+    srand(time(NULL));
+    
+    initMelodies(); // Charge les mélodies prédéfinies
+
+    state = STATE1; // Passe à l'état 1
 }
 
 void loop()
 {
-
+    switch(state)
+    {
+        case STATE1:
+            reset();
+            nextState = STATE2;
+            break;
+        case STATE2:
+            genererMelodie();
+            nextState = STATE3;
+            break;
+        case STATE3:
+            ecouteSaisie();
+            nextState = STATE4;
+            break;
+        case STATE4:
+            if (verification()) nextState = STATE2;
+            else                nextState = STATE1;
+            break;
+    }
 }
 
-void initMelodie() // Charge les mélodies prédéfinies
+void reset() // Vide tout les tableaux pour recommencer à 0
+{
+    initTableaux();
+}
+
+void initMelodies() // Charge les mélodies prédéfinies
 {
     melodiePredefinie[0]=setBouton(9,75,12);
     melodiePredefinie[1]=setBouton(1,75,12);
@@ -25,19 +58,18 @@ void initMelodie() // Charge les mélodies prédéfinies
     melodiePredefinie[3]=setBouton(0,75,12);
 }
 
-void initTableau()
+void initTableaux() // Initialise les tableaux avec des boutons "vides"
 {
     for(int i=0; i<10;i++)
     {
-        melodieGenerer[i]=setBouton(0,0,0);//On initialise le tableau melodieGenerer avec des melodie vides
-        melodieSaisie[i]=setBouton(0,0,0);//On initialise le tableau melodieSaisie avec des melodie vides
+        melodieGenerer[i] = setBouton(0,0,0); // On initialise le tableau melodieGenerer avec des melodie vides
+        melodieSaisie[i]  = setBouton(0,0,0); // On initialise le tableau melodieSaisie avec des melodie vides
     }
 }
 
-void genereMelodie()
+void genererMelodie() // Increment la combinaison de mélodies 
 {
-    
-    int a =rand()%4; 
+    int a = rand()%4; 
     for (int i=0; i<10;i++)
     {
         if (melodieGenerer[i].pinLed==0)
@@ -48,6 +80,15 @@ void genereMelodie()
     }
 }
 
+void ecouteSaisie() // Ecoute la combinaison des boutons saisie par le joueur
+{
+    // Tant qu'on a pas tout saisi, on ne sort pas de là, pigé !
+}
 
-
+bool verification() // Vérifie si la combinaison saisie est = à la combinaison générée
+{
+    // Si les deux tableaux se correspond retourner true
+    // sinon retourner false
+    return true;
+}
 
