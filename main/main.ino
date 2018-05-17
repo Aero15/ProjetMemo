@@ -21,14 +21,10 @@ void setup()
 
 void loop()
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   boolean btn1=digitalRead(melodiePredefinie[0].pinButton);
   Serial.println(btn1);
   if (btn1==1){activate(melodiePredefinie[0]);}
   
-=======
     switch(state)
     {
         case STATE1:
@@ -49,11 +45,6 @@ void loop()
             break;
     }
 }
->>>>>>> 1c7ba3de201f08c1ede48c30276d2d729adef268
-=======
->>>>>>> parent of 36bba16... Premier test sur la structure boutton
-=======
->>>>>>> parent of 36bba16... Premier test sur la structure boutton
 
 void reset() // Vide tout les tableaux pour recommencer à 0
 {
@@ -68,7 +59,7 @@ void initMelodies() // Charge les mélodies prédéfinies
     melodiePredefinie[3]=setBouton(0,75,12);
 }
 
-<<<<<<< HEAD
+
 void initTableau()
 {
     for(int i=0; i<10;i++)
@@ -93,7 +84,5 @@ void genereMelodie()
 }
 
 
-=======
->>>>>>> 1c7ba3de201f08c1ede48c30276d2d729adef268
 
 
