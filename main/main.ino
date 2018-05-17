@@ -14,23 +14,27 @@ void setup() {
 
 void loop()
 {
+  boolean btn1=digitalRead(melodiePredefinie[0].pinButton);
+  Serial.println(btn1);
+  if (btn1==1){activate(melodiePredefinie[0]);}
+  
 
 }
 
 void initMelodie() // Charge les mélodies prédéfinies
 {
-    melodiePredefinie[0]=setBouton(9,75,12);
-    melodiePredefinie[1]=setBouton(1,75,12);
-    melodiePredefinie[2]=setBouton(4,75,12);
-    melodiePredefinie[3]=setBouton(0,75,12);
+    melodiePredefinie[0]=setBouton(9,10,300,9);
+    melodiePredefinie[1]=setBouton(1,10,300,9);
+    melodiePredefinie[2]=setBouton(4,10,300,9);
+    melodiePredefinie[3]=setBouton(0,10,300,9);
 }
 
 void initTableau()
 {
     for(int i=0; i<10;i++)
     {
-        melodieGenerer[i]=setBouton(0,0,0);//On initialise le tableau melodieGenerer avec des melodie vides
-        melodieSaisie[i]=setBouton(0,0,0);//On initialise le tableau melodieSaisie avec des melodie vides
+        melodieGenerer[i]=setBouton(0,0,0,0);//On initialise le tableau melodieGenerer avec des melodie vides
+        melodieSaisie[i]=setBouton(0,0,0,0);//On initialise le tableau melodieSaisie avec des melodie vides
     }
 }
 
