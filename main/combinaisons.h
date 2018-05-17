@@ -6,8 +6,8 @@ void initTableaux() // Initialise les tableaux avec des boutons "vides"
 {
     for(int i=0; i<10;i++)
     {
-        melodieGenerer[i] = setBouton(0,0,0); // On initialise le tableau melodieGenerer avec des melodie vides
-        melodieSaisie[i]  = setBouton(0,0,0); // On initialise le tableau melodieSaisie avec des melodie vides
+        melodieGenerer[i] = setBouton(0,0,0,0); // On initialise le tableau melodieGenerer avec des melodie vides
+        melodieSaisie[i]  = setBouton(0,0,0,0); // On initialise le tableau melodieSaisie avec des melodie vides
     }
 }
 
