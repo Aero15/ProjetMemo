@@ -1,27 +1,60 @@
-#include "boutons.h"
 #include <time.h>
+#include "boutons.h"
+#include "combinaisons.h"
 
-bouton melodiePredefinie[4]; // contient les boutonsMelodie prédefinis
-bouton melodieSaisie[10]; //contient la saisie du joueur 
-bouton melodieGenerer[10];//contient la melodie générer 
+#define STATE1 0
+#define STATE2 1
+#define STATE3 2
+#define STATE4 3
 
-void setup() {
-    initMelodie();
-    initTableau();
-    srand(time(NULL));
+int state, nextState;
+
+void setup()
+{
     Serial.begin(9600);
+    srand(time(NULL));
+    
+    initMelodies(); // Charge les mélodies prédéfinies
+
+    state = STATE1; // Passe à l'état 1
 }
 
 void loop()
 {
+<<<<<<< HEAD
   boolean btn1=digitalRead(melodiePredefinie[0].pinButton);
   Serial.println(btn1);
   if (btn1==1){activate(melodiePredefinie[0]);}
   
+=======
+    switch(state)
+    {
+        case STATE1:
+            reset();
+            nextState = STATE2;
+            break;
+        case STATE2:
+            genererMelodie();
+            nextState = STATE3;
+            break;
+        case STATE3:
+            ecouteSaisie();
+            nextState = STATE4;
+            break;
+        case STATE4:
+            if (verification()) nextState = STATE2;
+            else                nextState = STATE1;
+            break;
+    }
+}
+>>>>>>> 1c7ba3de201f08c1ede48c30276d2d729adef268
 
+void reset() // Vide tout les tableaux pour recommencer à 0
+{
+    initTableaux();
 }
 
-void initMelodie() // Charge les mélodies prédéfinies
+void initMelodies() // Charge les mélodies prédéfinies
 {
     melodiePredefinie[0]=setBouton(9,10,300,9);
     melodiePredefinie[1]=setBouton(1,10,300,9);
@@ -29,6 +62,7 @@ void initMelodie() // Charge les mélodies prédéfinies
     melodiePredefinie[3]=setBouton(0,10,300,9);
 }
 
+<<<<<<< HEAD
 void initTableau()
 {
     for(int i=0; i<10;i++)
@@ -53,5 +87,7 @@ void genereMelodie()
 }
 
 
+=======
+>>>>>>> 1c7ba3de201f08c1ede48c30276d2d729adef268
 
 
