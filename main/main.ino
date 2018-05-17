@@ -1,6 +1,7 @@
 #include "boutons.h"
 
-bouton melodiePredefinie[4];
+bouton melodiePredefinie[4]; // contient les boutonsMelodie prédefinis
+bouton melodieSaisie[10]; //contient la saisie du joueur 
 
 void setup() {
   initMelodie();
@@ -20,5 +21,6 @@ void initMelodie(){
   melodiePredefinie[2]=setBouton(2,75,12);
   melodiePredefinie[3]=setBouton(2,75,12);
   }
+
 
 
