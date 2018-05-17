@@ -87,8 +87,17 @@ void ecouteSaisie() // Ecoute la combinaison des boutons saisie par le joueur
 
 bool verification() // Vérifie si la combinaison saisie est = à la combinaison générée
 {
-    // Si les deux tableaux se correspond retourner true
-    // sinon retourner false
+    for(int i=0; i<10; i++)
+    {
+        int b1 = melodieGenerer[i].pinButton;
+        int b2 = melodieSaisie[i].pinButton;
+        
+        if(b1 == 0 || b2 == 0) // Si on rencontre un bouton vide
+            break;             // On sort de la boucle
+        else if(b1 != b2)      // Sinon si on rencontre des boutons différents
+            return false;      // On retourne faux
+    }
+
     return true;
 }
 
