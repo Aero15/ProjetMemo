@@ -6,8 +6,8 @@ void initTableaux() // Initialise les tableaux avec des boutons "vides"
 {
     for(int i=0; i<10;i++)
     {
-        melodieGenerer[i] = setBouton(0,0,0,0); // On initialise le tableau melodieGenerer avec des melodie vides
-        melodieSaisie[i]  = setBouton(0,0,0,0); // On initialise le tableau melodieSaisie avec des melodie vides
+        melodieGenerer[i] = setBouton(0,0,0); // On initialise le tableau melodieGenerer avec des melodie vides
+        melodieSaisie[i]  = setBouton(0,0,0); // On initialise le tableau melodieSaisie avec des melodie vides
     }
 }
 
@@ -27,6 +27,17 @@ void genererMelodie() // Increment la combinaison de mélodies
 void ecouteSaisie() // Ecoute la combinaison des boutons saisie par le joueur
 {
     // Tant qu'on a pas tout saisi, on ne sort pas de là, pigé !
+    
+    boolean btn1=digitalRead(melodiePredefinie[0].pinButton);
+    boolean btn2=digitalRead(melodiePredefinie[1].pinButton);
+    boolean btn3=digitalRead(melodiePredefinie[2].pinButton);
+    Serial.println(btn1);
+    Serial.println(btn2);
+    if (btn1==1){activate(melodiePredefinie[0]);}
+    if (btn2==1){activate(melodiePredefinie[1]);}
+    if (btn3==1){activate(melodiePredefinie[2]);}
+
+    // TODO : Ecouter la saisie complete des combinaisons
 }
 
 bool verification() // Vérifie si la combinaison saisie est = à la combinaison générée

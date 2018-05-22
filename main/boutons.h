@@ -7,13 +7,13 @@ struct bouton {
     int buzzer;
 };
 
-bouton setBouton(int pinLed,int pinButton,int frequence,int buzzer) // Crée un bouton avec une led et sa frequence pour le buzzer
+bouton setBouton(int pinLed,int pinButton,int frequence) // Crée un bouton avec une led et sa frequence pour le buzzer
 {
     bouton b;
     b.pinLed = pinLed;
     b.pinButton = pinButton;
     b.frequence = frequence;
-    b.buzzer=buzzer;
+    b.buzzer=13;
     
     pinMode(b.pinLed,OUTPUT);
     pinMode(b.pinButton,INPUT);
