@@ -26,18 +26,35 @@ void genererMelodie() // Increment la combinaison de mélodies
 
 void ecouteSaisie() // Ecoute la combinaison des boutons saisie par le joueur
 {
-    // Tant qu'on a pas tout saisi, on ne sort pas de là, pigé !
-    
-    boolean btn1=digitalRead(melodiePredefinie[0].pinButton);
-    boolean btn2=digitalRead(melodiePredefinie[1].pinButton);
-    boolean btn3=digitalRead(melodiePredefinie[2].pinButton);
-    Serial.println(btn1);
-    Serial.println(btn2);
-    if (btn1==1){activate(melodiePredefinie[0]);}
-    if (btn2==1){activate(melodiePredefinie[1]);}
-    if (btn3==1){activate(melodiePredefinie[2]);}
+  bool b0,b1,b2,b3;
+  int taille=0;
 
-    // TODO : Ecouter la saisie complete des combinaisons
+  for (int i=0; i<10;i++)
+  {
+    if (melodieGenerer[i].pinButton!=0){taille++;}
+    else break;
+  }
+  
+  for (int i=0; i<taille;i++)
+  {
+    while(true)
+    {
+    int b0 = readBouton(melodiePredefinie[0]);
+    int b1 = readBouton(melodiePredefinie[1]);
+    int b2 = readBouton(melodiePredefinie[2]);
+    int b3 = readBouton(melodiePredefinie[3]);
+   if(b0==1 || b1==1 || b2==1 || b3==1)
+    {
+        Serial.print("step2");
+        if(b0==1) melodieSaisie[i]=melodiePredefinie[0];
+        else if(b1==1) melodieSaisie[i]=melodiePredefinie[1];
+        else if(b2==1) melodieSaisie[i]=melodiePredefinie[2];
+        else if(b3==1) melodieSaisie[i]=melodiePredefinie[3];
+        activate(melodieSaisie[i]);
+        break;
+     }
+    }
+  }
 }
 
 bool verification() // Vérifie si la combinaison saisie est = à la combinaison générée
