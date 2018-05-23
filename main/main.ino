@@ -7,6 +7,8 @@
 #define STATE3 2
 #define STATE4 3
 
+#define pinButtonReset 6
+
 int state, nextState;
 
 void setup()
@@ -15,17 +17,22 @@ void setup()
     srand(time(NULL));
     
     initMelodies(); // Charge les mélodies prédéfinies
+    
+    pinMode(pinButtonReset, INPUT); // Défini le btnReset en INPUT
+    attachInterrupt(digitalPinToInterrupt(pinButtonReset), reset, FALLING); // Lie le btnReset et sa fonction
 
     state = STATE1; // Passe à l'état 1
 }
 
 void loop()
 {
+    interrupts();
     switch(state) // Machine d'état
     {
         case STATE1:
+            noInterrupts();
             reset();
-            nextState = STATE2;
+            interrupts();
             break;
         case STATE2:
             genererMelodie();
@@ -44,7 +51,16 @@ void loop()
 
 void reset() // Vide tout les tableaux pour recommencer à 0
 {
-    initTableaux();
+    initTableaux(); // Vide tout
+
+    // Joue tous les sons et allumer tout les LEDs
+    activate(melodiePredefinie[0]);
+    activate(melodiePredefinie[1]);
+    activate(melodiePredefinie[2]);
+    activate(melodiePredefinie[3]);
+
+    // Passe à l'état suivant
+    nextState = STATE2;
 }
 
 void initMelodies() // Charge les mélodies prédéfinies
