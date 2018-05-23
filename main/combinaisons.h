@@ -55,3 +55,16 @@ bool verification() // Vérifie si la combinaison saisie est = à la combinaison
 
     return true;
 }
+
+void jouerMelodieGenerer()
+{
+  for(int i=0; i<10; i++)
+  {
+    if(melodieGenerer[i].pinButton!=0)
+    {
+      activate(melodieGenerer[i]);
+      delay(1000);
+    }
+  }
+}
+
