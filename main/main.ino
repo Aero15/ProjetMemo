@@ -21,12 +21,13 @@ void setup()
     pinMode(pinButtonReset, INPUT); // Défini le btnReset en INPUT
     attachInterrupt(digitalPinToInterrupt(pinButtonReset), reset, FALLING); // Lie le btnReset et sa fonction
 
-    state = STATE1; // Passe à l'état 1
+    nextState = STATE1; // Passe à l'état 1
 }
 
 void loop()
 {
     interrupts();
+    state = nextState;
     switch(state) // Machine d'état
     {
         case STATE1:
