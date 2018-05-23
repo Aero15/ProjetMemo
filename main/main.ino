@@ -10,10 +10,12 @@
 #define pinButtonReset 6
 
 int state, nextState;
+int N = 128, Te = 10; // N = Nb de points à récup dans le capteur lum, Te en ms
 
 void setup()
 {
-    Serial.begin(9600);
+    //Serial.begin(9600);
+    Serial.begin(115200);  
     srand(time(NULL));
     
     initMelodies(); // Charge les mélodies prédéfinies
@@ -26,7 +28,11 @@ void setup()
 
 void loop()
 {
+    Serial.print("Current state : ");
+    Serial.println(state);
 
+    tempsActivation = meanData();
+  
     interrupts();
     state = nextState;
     switch(state) // Machine d'état
@@ -72,3 +78,15 @@ void initMelodies() // Charge les mélodies prédéfinies
     melodiePredefinie[2]=setBouton(4,5,330);
     melodiePredefinie[3]=setBouton(0,0,0);
 }
+
+int meanData()
+{ 
+    long sumval=0;
+    
+    for (int i=0; i < N;  i++)
+    { 
+        sumval+= analogRead(A5);
+        delayMicroseconds(Te);                 
+    } 
+    return (sumval/N)*1.5;  
+} 
