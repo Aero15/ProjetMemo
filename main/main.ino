@@ -26,22 +26,7 @@ void setup()
 
 void loop()
 {
-  if (readBouton(melodiePredefinie[0]))
-  {
-    Serial.println("btn1");
-  }
 
-   if (readBouton(melodiePredefinie[1]))
-  {
-    Serial.println("btn2");
-  }
-
-   if (readBouton(melodiePredefinie[2]))
-  {
-    Serial.println("btn3");
-  }
-
-  /*
     interrupts();
     state = nextState;
     switch(state) // Machine d'état
