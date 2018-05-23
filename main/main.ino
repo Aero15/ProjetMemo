@@ -26,6 +26,22 @@ void setup()
 
 void loop()
 {
+  if (readBouton(melodiePredefinie[0]))
+  {
+    Serial.println("btn1");
+  }
+
+   if (readBouton(melodiePredefinie[1]))
+  {
+    Serial.println("btn2");
+  }
+
+   if (readBouton(melodiePredefinie[2]))
+  {
+    Serial.println("btn3");
+  }
+
+  /*
     interrupts();
     state = nextState;
     switch(state) // Machine d'état
@@ -69,5 +85,5 @@ void initMelodies() // Charge les mélodies prédéfinies
     melodiePredefinie[0]=setBouton(9,3,264);
     melodiePredefinie[1]=setBouton(1,4,147);
     melodiePredefinie[2]=setBouton(4,5,330);
-    melodiePredefinie[3]=setBouton(0,3,100);
+    melodiePredefinie[3]=setBouton(0,0,0);
 }
