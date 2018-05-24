@@ -33,7 +33,6 @@ void activate(bouton b) // Allume une led (et devrait activer le buzzer égaleme
 
 bool readBouton(bouton btn)
 { 
-  delay(70);
   return digitalRead(btn.pinButton);
 }
 
