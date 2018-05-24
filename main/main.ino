@@ -33,14 +33,14 @@ void loop()
 
     tempsActivation = meanData();
   
-    interrupts();
+   // interrupts();
     state = nextState;
     switch(state) // Machine d'état
     {
         case STATE1:
-            noInterrupts();
+           // noInterrupts();
             reset();
-            interrupts();
+           // interrupts();
             break;
         case STATE2:
             genererMelodie();
@@ -72,7 +72,6 @@ void reset() // Vide tout les tableaux pour recommencer à 0
 
 void initMelodies() // Charge les mélodies prédéfinies
 {
-    melodiePredefinie[0]=setBouton(9,3,264);
     melodiePredefinie[1]=setBouton(1,4,147);
     melodiePredefinie[2]=setBouton(4,5,330);
     melodiePredefinie[3]=setBouton(0,6,700);
