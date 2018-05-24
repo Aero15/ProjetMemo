@@ -72,9 +72,10 @@ void reset() // Vide tout les tableaux pour recommencer à 0
 
 void initMelodies() // Charge les mélodies prédéfinies
 {
-    melodiePredefinie[1]=setBouton(1,4,147);
-    melodiePredefinie[2]=setBouton(4,5,330);
-    melodiePredefinie[3]=setBouton(0,6,700);
+    melodiePredefinie[0]=setBouton(9,3,100);
+    melodiePredefinie[1]=setBouton(10,4,300);
+    melodiePredefinie[2]=setBouton(11,5,500);
+    melodiePredefinie[3]=setBouton(12,6,700);
 }
 
 int meanData()
