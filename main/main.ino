@@ -44,6 +44,7 @@ void loop()
             break;
         case STATE2:
             genererMelodie();
+            jouerMelodieGenerer();
             nextState = STATE3;
             break;
         case STATE3:
