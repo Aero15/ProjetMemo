@@ -29,6 +29,8 @@ void activate(bouton b) // Allume une led (et devrait activer le buzzer égaleme
     digitalWrite(b.pinLed,HIGH);
     delay(tempsActivation);
     digitalWrite(b.pinLed,LOW);
+    noTone(pinBuzzer);
+    //delay(1000);
 }
 
 bool readBouton(bouton btn)
