@@ -99,8 +99,19 @@ void jouerMelodieGenerer()
     if(melodieGenerer[i].pinButton!=0)
     {
       activate(melodieGenerer[i]);
-      delay(1000);
+        if(melodieGenerer[i].pinButton!=0)
+        {
+          activate(melodieGenerer[i]);
+          delay(1000);
+        }
     }
-  }
+}
+
+void jouerMelodiePredefini()
+{
+    for(int i=0; i<4; i++)
+        if(melodiePredefinie[i].pinButton!=0) activate(melodiePredefinie[i]);
+    for(int i=3; i>=0; i--)
+        if(melodiePredefinie[i].pinButton!=0) activate(melodiePredefinie[i]);
 }
 

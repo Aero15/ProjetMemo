@@ -62,10 +62,8 @@ void reset() // Vide tout les tableaux pour recommencer à 0
     initTableaux(); // Vide tout
 
     // Joue tous les sons et allumer tout les LEDs
-    activate(melodiePredefinie[0]);
-    activate(melodiePredefinie[1]);
-    activate(melodiePredefinie[2]);
-    activate(melodiePredefinie[3]);
+    jouerMelodiePredefini();
+    delay(1000);
 
     // Passe à l'état suivant
     nextState = STATE2;
