@@ -2,6 +2,10 @@ bouton melodiePredefinie[4]; // Contient les Boutons/Led/Frequences prédefinis
 bouton melodieGenerer[10];   // Contient les B/L/F à saisir
 bouton melodieSaisie[10];    // Contient la saisie des B/L/F du joueur 
 
+//Ismael
+//Input:
+//Ouput: effet de bord 
+//role: permet d'innitialiser les tableau melodieGenerer et melodieSaisie par des valeurs nulles.
 void initTableaux() // Initialise les tableaux avec des boutons "vides"
 {
     for(int i=0; i<10;i++)
@@ -10,7 +14,10 @@ void initTableaux() // Initialise les tableaux avec des boutons "vides"
         melodieSaisie[i]  = setBouton(0,0,0); // On initialise le tableau melodieSaisie avec des melodie vides
     }
 }
-
+//Ismael
+//Input:
+//Ouput: Effet de bord
+//role: Genere une mélodie aléatoire et la stocke dans un tableau 
 void genererMelodie() // Increment la combinaison de mélodies 
 {
     int a = rand()%4; 
@@ -24,6 +31,10 @@ void genererMelodie() // Increment la combinaison de mélodies
     }
 }
 
+//Ismael/Aslam
+//Input:
+//Ouput:
+//Role: Permet de stocker les notes joués par l'utilisateur et de les enregistrer dans un tableau
 void ecouteSaisie() // Ecoute la combinaison des boutons saisie par le joueur
 {
     int taille=0;
@@ -75,7 +86,10 @@ void ecouteSaisie() // Ecoute la combinaison des boutons saisie par le joueur
         }
     }
 }
-
+//Aslam
+//Input:
+//Ouput:
+//Role:
 bool verification() // Vérifie si la combinaison saisie est = à la combinaison générée
 {
     for(int i=0; i<10; i++)
@@ -92,7 +106,11 @@ bool verification() // Vérifie si la combinaison saisie est = à la combinaison
     return true;
 }
 
-void jouerMelodieGenerer()
+//Ismael
+//Input:
+//Ouput:
+//Role:Joue la melodie généré aléatoirement
+void jouerMelodieGenerer() 
 {
     for(int i=0; i<10; i++)
     {
@@ -103,8 +121,11 @@ void jouerMelodieGenerer()
         }
     }
 }
-
-void jouerMelodiePredefini()
+//Ismael
+//Input:
+//Ouput:
+//Role: Joue les notes enregistré dans melodiePredefinie
+void jouerMelodiePredefini()//Ismael
 {
     for(int i=0; i<4; i++)
         if(melodiePredefinie[i].pinButton!=0) activate(melodiePredefinie[i]);

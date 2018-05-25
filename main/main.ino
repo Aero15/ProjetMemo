@@ -26,6 +26,7 @@ void setup()
     nextState = STATE1; // Passe à l'état 1
 }
 
+// Aslam
 void loop()
 {
     Serial.print("Current state : ");
@@ -52,12 +53,14 @@ void loop()
             nextState = STATE4;
             break;
         case STATE4:
+            delay(1000);
             if (verification()) nextState = STATE2;
             else                nextState = STATE1;
             break;
     }
 }
 
+// Aslam
 void reset() // Vide tout les tableaux pour recommencer à 0
 {
     initTableaux(); // Vide tout
@@ -70,6 +73,7 @@ void reset() // Vide tout les tableaux pour recommencer à 0
     nextState = STATE2;
 }
 
+// Aslam
 void initMelodies() // Charge les mélodies prédéfinies
 {
     melodiePredefinie[0]=setBouton(9,3,100);
@@ -78,6 +82,8 @@ void initMelodies() // Charge les mélodies prédéfinies
     melodiePredefinie[3]=setBouton(12,6,700);
 }
 
+
+// Aslam
 int meanData()
 { 
     long sumval=0;
